@@ -96,6 +96,7 @@ app.get("/create-coupon", async (req, res) => {
         headers: HEADERS,
       }
     );
+    console.log(result)
     res.json(result);
   } catch (error) {
     console.error(error);
