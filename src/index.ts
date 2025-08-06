@@ -89,9 +89,14 @@ app.get("/create-coupon", async (req, res) => {
       },
       visibility: "UNLISTED",
     };
-    await axios.post(`${API_DOMAIN}/v2/bot/coupon`, requestBody, {
-      headers: HEADERS,
-    });
+    const result = await axios.post(
+      `${API_DOMAIN}/v2/bot/coupon`,
+      requestBody,
+      {
+        headers: HEADERS,
+      }
+    );
+    res.json(result);
   } catch (error) {
     console.error(error);
     res.status(500).json(error);
